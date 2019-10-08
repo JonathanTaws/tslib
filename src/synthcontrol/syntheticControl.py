@@ -53,7 +53,7 @@ class RobustSyntheticControl(object):
     # The values must be all numpy arrays of floats.
     def fit(self, keyToSeriesDF):
 
-    	self.model.fit(keyToSeriesDF)
+        self.model.fit(keyToSeriesDF)
 
 
     # otherKeysToSeriesDFNew:     (Pandas dataframe) needs to contain all keys provided in the model;
@@ -61,13 +61,13 @@ class RobustSyntheticControl(object):
     #                               If longer than 1, then the most recent point will be used (for each series)
     def predict(self, otherKeysToSeriesDFNew):
         prediction = np.dot(self.model.weights, otherKeysToSeriesDFNew[self.otherSeriesKeysArray].T)
-    	return prediction
+        return prediction
 
     # return the synthetic control weights
     def getControl():
 
-    	if (self.model.weights is None):
-    		raise Exception('Before calling getControl() you need to call the fit() method first.')
+        if (self.model.weights is None):
+            raise Exception('Before calling getControl() you need to call the fit() method first.')
 
-    	else:
-    		return self.model.weights
+        else:
+            return self.model.weights
